@@ -18,6 +18,16 @@ SPOTIFY_ICON = (
     '0 0 1-1.12 1.95z"/></svg>'
 )
 
+APPLE_ICON = (
+    '<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">'
+    '<path fill="currentColor" d="M17.05 12.54c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8'
+    "-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.75 2.28-1.6 2.77-.41 6.87 "
+    "1.15 9.12.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74s1.78.74 3 .72c1.24-.02 2.02-1.12 "
+    "2.78-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.65zM14.8 5.6c.63-.77 1.06-1.83.94-2.9"
+    "-.91.04-2.01.61-2.66 1.37-.58.68-1.09 1.76-.95 2.8 1.01.08 2.04-.51 2.67-1.27z"
+    '"/></svg>'
+)
+
 PAGE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +65,7 @@ PAGE = """<!DOCTYPE html>
     background: var(--panel); color: var(--text); font-size: 15px; outline: none;
   }}
   #q:focus {{ border-color: var(--accent); }}
+  .table-wrap {{ overflow-x: auto; -webkit-overflow-scrolling: touch; }}
   table {{ width: 100%; border-collapse: collapse; }}
   thead th {{
     text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.09em;
@@ -65,21 +76,29 @@ PAGE = """<!DOCTYPE html>
   tbody tr:hover {{ background: var(--panel); }}
   td {{ padding: 13px 12px; vertical-align: middle; }}
   .song {{ font-weight: 600; }}
+  .song .sub {{ display: none; }}
   .artist {{ color: var(--muted); }}
   .date {{ color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }}
   .icon-btn {{
-    display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px;
-    background: var(--accent); color: #04120a; text-decoration: none; font-size: 12px;
+    display: inline-flex; align-items: center; gap: 5px; padding: 5px 11px; border-radius: 999px;
+    background: var(--accent); color: #04120a; text-decoration: none; font-size: 11.5px;
     font-weight: 700; white-space: nowrap; transition: background .15s ease;
   }}
   .icon-btn:hover {{ background: var(--accent-dim); }}
+  .icon-btn.apple {{ background: #fa2d48; color: #fff; }}
+  .icon-btn.apple:hover {{ background: #d81f38; }}
   .reel {{ color: var(--muted); text-decoration: none; font-size: 13px; white-space: nowrap; }}
   .reel:hover {{ color: var(--text); }}
   .empty {{ text-align: center; color: var(--muted); padding: 40px 0; display: none; }}
   footer {{ margin-top: 34px; color: var(--muted); font-size: 12.5px; line-height: 1.7; }}
-  @media (max-width: 620px) {{
-    thead th:nth-child(4), td:nth-child(4) {{ display: none; }}
-    td {{ padding: 11px 8px; }}
+  @media (max-width: 700px) {{
+    thead th:nth-child(2), td:nth-child(2),
+    thead th:nth-child(3), td:nth-child(3) {{ display: none; }}
+    .song .sub {{ display: block; font-weight: 400; color: var(--muted);
+                  font-size: 13px; margin-top: 3px; }}
+    .lbl {{ display: none; }}
+    .icon-btn {{ padding: 6px 9px; }}
+    th, td {{ padding: 10px 7px; }}
   }}
 </style>
 </head>
@@ -97,14 +116,16 @@ PAGE = """<!DOCTYPE html>
     <input id="q" type="search" placeholder="Filter by song or artist..." autocomplete="off">
   </div>
 
+  <div class="table-wrap">
   <table>
     <thead>
-      <tr><th>Song</th><th>Artist</th><th>Date</th><th>Spotify</th><th>Reel</th></tr>
+      <tr><th>Song</th><th>Artist</th><th>Date</th><th>Spotify</th><th>Apple</th><th>Reel</th></tr>
     </thead>
     <tbody id="rows">
 {rows}
     </tbody>
   </table>
+  </div>
   <p class="empty" id="empty">No songs match that filter.</p>
 
   <footer>
@@ -150,14 +171,25 @@ def _row(song: Song) -> str:
     haystack = escape(f"{song.title} {song.artist}".lower(), quote=True)
     return (
         f'      <tr data-haystack="{haystack}">\n'
-        f'        <td class="song">{escape(song.title)}</td>\n'
+        f'        <td class="song">{escape(song.title)}'
+        f'<span class="sub">{escape(song.artist) or "&mdash;"}</span></td>\n'
         f'        <td class="artist">{escape(song.artist) or "&mdash;"}</td>\n'
         f'        <td class="date">{escape(_pretty_date(song.latest_date))}</td>\n'
         f'        <td><a class="icon-btn" href="{escape(song.spotify, quote=True)}" '
-        f'target="_blank" rel="noopener">{SPOTIFY_ICON}Spotify</a></td>\n'
+        f'target="_blank" rel="noopener" title="Listen on Spotify">{SPOTIFY_ICON}<span class="lbl">Spotify</span></a></td>\n'
+        f'        <td>{_apple_cell(song)}</td>\n'
         f'        <td><a class="reel" href="{escape(song.latest_reel, quote=True)}" '
         f'target="_blank" rel="noopener">view &#8599;</a></td>\n'
         f"      </tr>"
+    )
+
+
+def _apple_cell(song: Song) -> str:
+    if not song.apple:
+        return '<span class="date">&mdash;</span>'
+    return (
+        f'<a class="icon-btn apple" href="{escape(song.apple, quote=True)}" '
+        f'target="_blank" rel="noopener" title="Listen on Apple Music">{APPLE_ICON}<span class="lbl">Apple Music</span></a>'
     )
 
 

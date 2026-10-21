@@ -20,6 +20,7 @@ from pathlib import Path
 from archive import Archive
 from build_site import render
 from identify import identify_all
+from links import apple_music_url
 from reels import Reel, fetch_reels
 
 DEPTH = 48
@@ -62,11 +63,27 @@ def main() -> int:
     if reels:
         archive.newest_seen = max(archive.newest_seen, reels[0].posted_on)
 
+    _resolve_apple_links(archive)
+
     archive.save(Path(args.data))
     render(archive, Path(args.out))
     shutil.rmtree(workdir, ignore_errors=True)
     print(f"done: {len(archive.songs)} songs on the page")
     return 0
+
+
+def _resolve_apple_links(archive: Archive) -> None:
+    """Look up Apple Music links for any song we have not resolved yet.
+
+    Results — including the search-page fallback — are stored, so each song is
+    queried at most once across the lifetime of the archive.
+    """
+    missing = archive.songs_missing_apple()
+    if not missing:
+        return
+    print(f"resolving {len(missing)} Apple Music link(s)…")
+    for song in missing:
+        song.apple = apple_music_url(song.title, song.artist)
 
 
 def _select_new(archive: Archive, reels: list[Reel], args) -> list[Reel]:

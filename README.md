@@ -1,8 +1,8 @@
 # Songs of @keaches
 
 A daily-updated page listing every song used in
-[`@keaches`](https://www.instagram.com/keaches/)'s Instagram reels, each linked
-to Spotify.
+[`@keaches`](https://www.instagram.com/keaches/)'s Instagram reels, with a
+Spotify and an Apple Music link for each.
 
 The archive is seeded from his 25 most recent reels and grows from there — one
 row per unique song, showing the most recent reel it appeared in.
@@ -20,10 +20,16 @@ row per unique song, showing the most recent reel it appeared in.
    Instagram labels it as licensed music.
 4. **Skip** anything else — a reel scored with his own voice has no song to list.
 
-Spotify links use `isrc:` search when an ISRC is known, and a title+artist
-search otherwise. (Spotify's web search only honours a *lowercase* `isrc:`
-filter; the uppercase form is treated as free text and returns unrelated
-results.)
+Spotify and Apple Music links are both shown for every song.
+
+- **Spotify** uses an `isrc:` search when an ISRC is known and a title+artist
+  search otherwise. Spotify's web search only honours a *lowercase* `isrc:`
+  filter — the uppercase form is read as free text and returns unrelated
+  results.
+- **Apple Music** uses Apple's public iTunes Search API (no key required), which
+  returns a *direct track link*. Apple has no ISRC lookup, so it matches on
+  title+artist and falls back to an Apple Music search page when nothing lines
+  up. Each song is looked up once and the result is cached in the archive.
 
 ## Layout
 
@@ -33,9 +39,12 @@ scripts/
   monid_client.py             the Monid CLI boundary
   reels.py                    fetch + normalise reels
   identify.py                 Shazam / metadata fallback
+  links.py                    Apple Music lookup (cached per song)
+  text.py                     title/artist normalisation + matching
   archive.py                  persisted, append-only state
   build_site.py               renders public/index.html
   run_pipeline.py             entry point (--mode seed|update)
+  setup-cloudflare.sh         guided GitHub + Cloudflare setup
 data/songs.json               the archive (committed; grows over time)
 public/index.html             the generated page (deployed)
 ```

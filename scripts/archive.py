@@ -9,8 +9,6 @@ song, carrying the most recent reel it appeared in. Reels that yielded no song
 from __future__ import annotations
 
 import json
-import re
-import unicodedata
 from dataclasses import asdict, dataclass, fields
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,10 +17,9 @@ from urllib.parse import quote
 
 from identify import Identification
 from reels import Reel
+from text import normalise
 
 SCHEMA_VERSION = 1
-_PARENTHETICAL = re.compile(r"\s*[\(\[][^)\]]*[\)\]]")
-_NON_WORD = re.compile(r"[^a-z0-9]+")
 
 
 @dataclass
@@ -35,6 +32,7 @@ class Song:
     first_seen: str
     latest_date: str
     latest_reel: str
+    apple: str = ""
 
     @property
     def spotify(self) -> str:
@@ -109,6 +107,10 @@ class Archive:
         if not existing.isrc and hit.isrc:
             existing.isrc = hit.isrc
 
+    def songs_missing_apple(self) -> list[Song]:
+        """Songs we have not yet looked up on Apple Music."""
+        return [s for s in self.songs.values() if not s.apple]
+
     # ------------------------------------------------------------------ queries
     def listing(self) -> list[Song]:
         return sorted(self.songs.values(), key=lambda s: (s.latest_date, s.title), reverse=True)
@@ -121,7 +123,7 @@ def song_key(hit: Identification) -> str:
     """ISRC when we have it, otherwise a normalised title+artist fingerprint."""
     if hit.isrc:
         return f"isrc:{hit.isrc.upper()}"
-    return f"ta:{_normalise(hit.title)}|{_normalise(hit.artist)}"
+    return f"ta:{normalise(hit.title)}|{normalise(hit.artist)}"
 
 
 def spotify_url(isrc: str | None, title: str, artist: str) -> str:
@@ -140,11 +142,3 @@ def _known_fields(row: dict) -> dict:
     """Ignore any fields that are no longer part of the schema."""
     allowed = {f.name for f in fields(Song)}
     return {k: v for k, v in row.items() if k in allowed}
-
-
-def _normalise(text: str) -> str:
-    text = unicodedata.normalize("NFKD", text or "")
-    text = text.encode("ascii", "ignore").decode()
-    text = _PARENTHETICAL.sub(" ", text)
-    text = _NON_WORD.sub(" ", text.lower())
-    return " ".join(text.split())
