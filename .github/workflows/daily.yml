@@ -56,7 +56,9 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=keaches-songs
+          # --branch must match the Pages project's production branch, otherwise
+          # the deploy lands as a preview and the production URL never updates.
+          command: pages deploy public --project-name=keaches-songs --branch=master
 
       - name: Commit the updated archive
         run: |

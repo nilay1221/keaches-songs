@@ -287,12 +287,13 @@ fi
 
 say "Now we'll make sure the Pages project '$PAGES_PROJECT' exists, so the first"
 say "CI deploy has somewhere to go."
+BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo main)
 if [[ -n "$CLOUDFLARE_API_TOKEN" && -n "$CLOUDFLARE_ACCOUNT_ID" ]] && command -v npx >/dev/null 2>&1; then
-  if confirm "Create the Pages project '$PAGES_PROJECT' now?"; then
+  if confirm "Create the Pages project '$PAGES_PROJECT' now (production branch: $BRANCH)?"; then
     if CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" \
        CLOUDFLARE_ACCOUNT_ID="$CLOUDFLARE_ACCOUNT_ID" \
        npx --yes wrangler@latest pages project create "$PAGES_PROJECT" \
-         --production-branch=main >/dev/null 2>&1; then
+         --production-branch="$BRANCH" >/dev/null 2>&1; then
       printf '  %s✓ created%s Pages project %s\n' "$GREEN" "$RESET" "$PAGES_PROJECT"
     else
       warn "could not create it (it may already exist) — the first deploy can also create it"
