@@ -1,0 +1,71 @@
+name: Update songs
+
+on:
+  schedule:
+    # Daily at 06:17 UTC (offset from the hour to avoid the cron stampede).
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "seed = rebuild from the last 25 reels; update = append new reels"
+        type: choice
+        options: [update, seed]
+        default: update
+
+concurrency:
+  group: songs
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Install Monid CLI
+        run: npm install -g @monid-ai/cli@latest
+
+      - name: Configure Monid
+        run: monid keys add -k "$MONID_API_KEY" -l main
+        env:
+          MONID_API_KEY: ${{ secrets.MONID_API_KEY }}
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Update archive and build the page
+        run: python scripts/run_pipeline.py --mode "${{ inputs.mode || 'update' }}"
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=keaches-songs
+
+      - name: Commit the updated archive
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/songs.json
+          if git diff --cached --quiet; then
+            echo "Archive unchanged."
+          else
+            git commit -m "chore: update song archive [skip ci]"
+            git push
+          fi
