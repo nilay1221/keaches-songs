@@ -41,8 +41,8 @@ def main() -> int:
     )
 
     unprocessed: set[str] = set()
+    workdir = Path(args.workdir)
     if fresh:
-        workdir = Path(args.workdir)
         shutil.rmtree(workdir, ignore_errors=True)
 
         identifications, unprocessed = identify_all(fresh, str(workdir))
@@ -64,6 +64,7 @@ def main() -> int:
 
     archive.save(Path(args.data))
     render(archive, Path(args.out))
+    shutil.rmtree(workdir, ignore_errors=True)
     print(f"done: {len(archive.songs)} songs on the page")
     return 0
 
