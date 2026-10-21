@@ -62,7 +62,16 @@ the API surfaces a few old high-engagement reels before recent ones.
 GitHub Actions runs the update daily and deploys `public/` to Cloudflare Pages
 with `wrangler`. It then commits the updated `data/songs.json` back to the repo.
 
-Required repository secrets:
+### Guided setup
+
+Run the setup wizard from the repo root — it creates the GitHub repo, walks you
+through a Cloudflare API token, sets the repo secrets and triggers the first run:
+
+```bash
+scripts/setup-cloudflare.sh
+```
+
+Required repository secrets (the wizard sets all three):
 
 | Secret | Purpose |
 | --- | --- |
