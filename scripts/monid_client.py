@@ -50,6 +50,14 @@ def run_endpoint(
         )
 
     payload = _parse_json(proc.stdout)
+
+    # A failed *provider* call still reports status "COMPLETED": the Monid run
+    # itself finished, it is the upstream request that failed and left `output`
+    # null. Surface the provider's own error rather than an opaque message.
+    error = payload.get("error")
+    if error:
+        raise MonidError(f"monid error: {_describe_error(error)}")
+
     status = payload.get("status")
     if status != "COMPLETED":
         cost = payload.get("controls") or payload.get("error")
@@ -57,8 +65,34 @@ def run_endpoint(
 
     output = payload.get("output")
     if not isinstance(output, dict):
-        raise MonidError("monid run returned no output object")
+        raise MonidError(f"monid run produced no output: {_provider_failure(payload)}")
     return output
+
+
+def _provider_failure(payload: dict[str, Any]) -> str:
+    """Explain why a completed run has no output (almost always a provider error)."""
+    response = payload.get("providerResponse") or {}
+    status = response.get("httpStatus")
+    message = _describe_error(response.get("error")) if response.get("error") else ""
+    parts = [p for p in (f"HTTP {status}" if status is not None else "", message) if p]
+    return f"provider returned {' - '.join(parts)}" if parts else "provider returned no output"
+
+
+def _describe_error(error: Any) -> str:
+    """Pull a human-readable message out of Monid's various error shapes."""
+    if isinstance(error, str):
+        return error
+    if not isinstance(error, dict):
+        return str(error)
+    detail = error.get("detail")
+    if isinstance(detail, dict) and detail.get("message"):
+        return str(detail["message"])
+    if isinstance(detail, str) and detail:
+        return detail
+    for key in ("message", "code"):
+        if error.get(key):
+            return str(error[key])
+    return json.dumps(error)[:300]
 
 
 def _parse_json(stdout: str) -> dict[str, Any]:

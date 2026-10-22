@@ -9,9 +9,11 @@ row per unique song, showing the most recent reel it appeared in.
 
 ## How a song is identified
 
-1. **Fetch** the reels via the [Monid](https://monid.ai) `tikhub/fetch_user_reels`
-   endpoint. It returns a direct CDN URL for each reel's video plus Instagram's
-   own music metadata, so nothing has to be scraped.
+1. **Fetch** the reels via [Monid](https://monid.ai). It returns a direct CDN
+   URL for each reel's video plus Instagram's own music metadata, so nothing has
+   to be scraped. No single endpoint is dependable, so we try TikHub's v2
+   `fetch_user_reels`, then TikHub's v1 endpoint, then AnyAPI's
+   `instagram.user_reels`, and use the first that answers.
 2. **Fingerprint** the reel's audio with Shazam. This is the only route to an
    ISRC, and it also works when the song was baked into the video rather than
    added through Instagram's music feature. If the whole clip misses, short
