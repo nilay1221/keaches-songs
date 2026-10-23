@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-10-22T16:35:37+00:00",
-  "newest_seen": "2026-10-22",
+  "updated_at": "2026-10-23T11:38:33+00:00",
+  "newest_seen": "2026-10-23",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -10,6 +10,7 @@
     "Dd-sO_do6mb",
     "Dd50UEHoA8e",
     "Dd_dhZZy9FE",
+    "De03UIBoXql",
     "DeB-eLlILaB",
     "DeBj_RKoZfP",
     "DeEKLBloa-T",
@@ -63,6 +64,17 @@
     "Deye6GfoVUM"
   ],
   "songs": [
+    {
+      "key": "isrc:USCJY1431309",
+      "title": "Blank Space",
+      "artist": "Taylor Swift",
+      "isrc": "USCJY1431309",
+      "source": "shazam",
+      "first_seen": "2026-10-23",
+      "latest_date": "2026-10-23",
+      "latest_reel": "https://www.instagram.com/reel/De03UIBoXql/",
+      "apple": "https://music.apple.com/us/album/blank-space/1440933512?i=1440933517"
+    },
     {
       "key": "ta:op9 no 2|",
       "title": "\u591c\u66f2op9, No.2",
