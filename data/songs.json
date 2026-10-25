@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-10-24T10:59:03+00:00",
-  "newest_seen": "2026-10-24",
+  "updated_at": "2026-10-25T11:27:38+00:00",
+  "newest_seen": "2026-10-25",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -13,6 +13,9 @@
     "De03UIBoXql",
     "De1EoKuh8uZ",
     "De1gEazoVoS",
+    "De3p9M9o5De",
+    "De4ELjlovud",
+    "De6kcLQyCHf",
     "DeB-eLlILaB",
     "DeBj_RKoZfP",
     "DeEKLBloa-T",
@@ -66,6 +69,28 @@
     "Deye6GfoVUM"
   ],
   "songs": [
+    {
+      "key": "isrc:INS181400365",
+      "title": "Baby Doll",
+      "artist": "Meet Bros Anjjan & Kanika Kapoor",
+      "isrc": "INS181400365",
+      "source": "shazam",
+      "first_seen": "2026-10-25",
+      "latest_date": "2026-10-25",
+      "latest_reel": "https://www.instagram.com/reel/De3p9M9o5De/",
+      "apple": "https://music.apple.com/us/album/baby-doll-from-ragini-mms-2/1509732547?i=1509732557"
+    },
+    {
+      "key": "isrc:FR43Y1000060",
+      "title": "Danza Kuduro (feat. Don Omar)",
+      "artist": "Lucenzo",
+      "isrc": "FR43Y1000060",
+      "source": "shazam",
+      "first_seen": "2026-10-25",
+      "latest_date": "2026-10-25",
+      "latest_reel": "https://www.instagram.com/reel/De6kcLQyCHf/",
+      "apple": "https://music.apple.com/us/album/danza-kuduro-feat-lucenzo/1440636324?i=1440636498"
+    },
     {
       "key": "ta:tumse milke dil ka haj jo haal|salim sulaiman",
       "title": "Tumse Milke Dil Ka Haj Jo Haal",
