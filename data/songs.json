@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-10-25T11:27:38+00:00",
-  "newest_seen": "2026-10-25",
+  "updated_at": "2026-10-26T13:25:03+00:00",
+  "newest_seen": "2026-10-26",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -16,6 +16,8 @@
     "De3p9M9o5De",
     "De4ELjlovud",
     "De6kcLQyCHf",
+    "De8ncvPymQh",
+    "De9MD7BoaOp",
     "DeB-eLlILaB",
     "DeBj_RKoZfP",
     "DeEKLBloa-T",
@@ -69,6 +71,17 @@
     "Deye6GfoVUM"
   ],
   "songs": [
+    {
+      "key": "isrc:INS181801821",
+      "title": "Kamariya (From \"Stree\")",
+      "artist": "Aastha Gill, Sachin Sanghvi, Jigar Saraiya & Divya Kumar",
+      "isrc": "INS181801821",
+      "source": "shazam",
+      "first_seen": "2026-10-26",
+      "latest_date": "2026-10-26",
+      "latest_reel": "https://www.instagram.com/reel/De8ncvPymQh/",
+      "apple": "https://music.apple.com/us/album/kamariya-from-stree/1440699323?i=1440699327"
+    },
     {
       "key": "isrc:INS181400365",
       "title": "Baby Doll",
