@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-10-28T12:54:11+00:00",
-  "newest_seen": "2026-10-28",
+  "updated_at": "2026-10-29T13:00:44+00:00",
+  "newest_seen": "2026-10-29",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -13,9 +13,12 @@
     "De03UIBoXql",
     "De1EoKuh8uZ",
     "De1gEazoVoS",
+    "De1r383Izmx",
     "De3p9M9o5De",
     "De4ELjlovud",
+    "De6O17XIaXB",
     "De6kcLQyCHf",
+    "De8ePTdIjTA",
     "De8ncvPymQh",
     "De8y-nGIR94",
     "De9MD7BoaOp",
@@ -44,6 +47,7 @@
     "DeYvpRZIftY",
     "DeZJ9JIIawH",
     "De_JN_Ko0ZZ",
+    "De_XpSgo6-B",
     "De_wM8aINjE",
     "DebFRL-orPJ",
     "DebUPv6IlMI",
@@ -72,9 +76,46 @@
     "DeyLJPpo4yB",
     "DeyRQBiy7y2",
     "Deye6GfoVUM",
-    "DfBwfWqIdIT"
+    "DfBwfWqIdIT",
+    "DfCjTBfoQkP",
+    "DfE-s9CI8xZ",
+    "DfEUFOQop5K",
+    "DfEgiIIoWFv"
   ],
   "songs": [
+    {
+      "key": "isrc:INY090800003",
+      "title": "Chhaliya",
+      "artist": "Vishal & Shekhar, Piyush Mishra & Sunidhi Chauhan",
+      "isrc": "INY090800003",
+      "source": "shazam",
+      "first_seen": "2026-10-29",
+      "latest_date": "2026-10-29",
+      "latest_reel": "https://www.instagram.com/reel/DfEUFOQop5K/",
+      "apple": "https://music.apple.com/us/album/chhaliya/673588775?i=673588784"
+    },
+    {
+      "key": "isrc:INH100450880",
+      "title": "Chadti Jawani (Remix)",
+      "artist": "Shreekant Krishnamurthy & Pallavi Kelkar",
+      "isrc": "INH100450880",
+      "source": "shazam",
+      "first_seen": "2026-10-29",
+      "latest_date": "2026-10-29",
+      "latest_reel": "https://www.instagram.com/reel/DfE-s9CI8xZ/",
+      "apple": "https://music.apple.com/us/album/chadti-jawani-remix/1403729316?i=1403729710"
+    },
+    {
+      "key": "isrc:GBLLT1900056",
+      "title": "Jaago",
+      "artist": "Lifafa",
+      "isrc": "GBLLT1900056",
+      "source": "shazam",
+      "first_seen": "2026-10-29",
+      "latest_date": "2026-10-29",
+      "latest_reel": "https://www.instagram.com/reel/DfEgiIIoWFv/",
+      "apple": "https://music.apple.com/us/album/jaago/1448478213?i=1448478214"
+    },
     {
       "key": "isrc:GBSGZ1500537",
       "title": "Malhari",
