@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-10-29T13:00:44+00:00",
-  "newest_seen": "2026-10-29",
+  "updated_at": "2026-10-30T12:54:58+00:00",
+  "newest_seen": "2026-10-30",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -80,9 +80,33 @@
     "DfCjTBfoQkP",
     "DfE-s9CI8xZ",
     "DfEUFOQop5K",
-    "DfEgiIIoWFv"
+    "DfEgiIIoWFv",
+    "DfG4COAop0p",
+    "DfHexKyIUiH"
   ],
   "songs": [
+    {
+      "key": "isrc:INMUS2166701",
+      "title": "Diwali Mela Final",
+      "artist": "Alex & Kiran",
+      "isrc": "INMUS2166701",
+      "source": "shazam",
+      "first_seen": "2026-10-30",
+      "latest_date": "2026-10-30",
+      "latest_reel": "https://www.instagram.com/reel/DfHexKyIUiH/",
+      "apple": "https://music.apple.com/us/album/diwali-mela-final/1600378591?i=1600378593"
+    },
+    {
+      "key": "isrc:GBSGZ0900019",
+      "title": "Twist",
+      "artist": "Pritam & Neeraj Shridhar",
+      "isrc": "GBSGZ0900019",
+      "source": "shazam",
+      "first_seen": "2026-10-30",
+      "latest_date": "2026-10-30",
+      "latest_reel": "https://www.instagram.com/reel/DfG4COAop0p/",
+      "apple": "https://music.apple.com/us/album/twist/1842069630?i=1842069634"
+    },
     {
       "key": "isrc:INY090800003",
       "title": "Chhaliya",
