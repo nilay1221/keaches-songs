@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-10-30T12:54:58+00:00",
-  "newest_seen": "2026-10-30",
+  "updated_at": "2026-10-31T12:27:51+00:00",
+  "newest_seen": "2026-10-31",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -82,9 +82,34 @@
     "DfEUFOQop5K",
     "DfEgiIIoWFv",
     "DfG4COAop0p",
-    "DfHexKyIUiH"
+    "DfH7tI7o25o",
+    "DfHexKyIUiH",
+    "DfJeCt8IfUM",
+    "DfKAV7doOhu"
   ],
   "songs": [
+    {
+      "key": "isrc:INMUS2159101",
+      "title": "Dil Luteya & Others",
+      "artist": "Maydda",
+      "isrc": "INMUS2159101",
+      "source": "shazam",
+      "first_seen": "2026-10-20",
+      "latest_date": "2026-10-31",
+      "latest_reel": "https://www.instagram.com/reel/DfJeCt8IfUM/",
+      "apple": "https://music.apple.com/us/album/dil-luteya-others/1599876589?i=1599876591"
+    },
+    {
+      "key": "ta:apocalypse|cigarettes after sex",
+      "title": "Apocalypse",
+      "artist": "Cigarettes After Sex",
+      "isrc": null,
+      "source": "instagram",
+      "first_seen": "2026-10-31",
+      "latest_date": "2026-10-31",
+      "latest_reel": "https://www.instagram.com/reel/DfKAV7doOhu/",
+      "apple": "https://music.apple.com/us/album/apocalypse/1217977525?i=1217977755"
+    },
     {
       "key": "isrc:INMUS2166701",
       "title": "Diwali Mela Final",
@@ -106,6 +131,17 @@
       "latest_date": "2026-10-30",
       "latest_reel": "https://www.instagram.com/reel/DfG4COAop0p/",
       "apple": "https://music.apple.com/us/album/twist/1842069630?i=1842069634"
+    },
+    {
+      "key": "ta:op 9 no 2|emil gilel",
+      "title": "\u591c\u66f2Op. 9, No. 2",
+      "artist": "Emil Gilel",
+      "isrc": null,
+      "source": "instagram",
+      "first_seen": "2026-10-30",
+      "latest_date": "2026-10-30",
+      "latest_reel": "https://www.instagram.com/reel/DfH7tI7o25o/",
+      "apple": "https://music.apple.com/search?term=%E5%A4%9C%E6%9B%B2Op.%209%2C%20No.%202%20Emil%20Gilel"
     },
     {
       "key": "isrc:INY090800003",
@@ -326,17 +362,6 @@
       "latest_date": "2026-10-20",
       "latest_reel": "https://www.instagram.com/reel/DetxOXOoXos/",
       "apple": "https://music.apple.com/us/album/dhoom-taana-from-om-shanti-om/1785643108?i=1785643324"
-    },
-    {
-      "key": "isrc:INMUS2159101",
-      "title": "Dil Luteya & Others",
-      "artist": "Maydda",
-      "isrc": "INMUS2159101",
-      "source": "shazam",
-      "first_seen": "2026-10-20",
-      "latest_date": "2026-10-20",
-      "latest_reel": "https://www.instagram.com/reel/DerYW67oSUi/",
-      "apple": "https://music.apple.com/us/album/dil-luteya-others/1599876589?i=1599876591"
     },
     {
       "key": "isrc:INM129800401",
