@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-10-31T12:27:51+00:00",
-  "newest_seen": "2026-10-31",
+  "updated_at": "2026-11-01T13:22:35+00:00",
+  "newest_seen": "2026-11-01",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -85,9 +85,22 @@
     "DfH7tI7o25o",
     "DfHexKyIUiH",
     "DfJeCt8IfUM",
-    "DfKAV7doOhu"
+    "DfKAV7doOhu",
+    "DfMAIhdypnc",
+    "DfMtSzJoJ0A"
   ],
   "songs": [
+    {
+      "key": "ta:kaanta laga samadhi|anupama deshpande babul supriya bela gulshan kumar kalpana sashwati sneha pant swastika szanne d melo zubeen garg",
+      "title": "Kaanta Laga - Samadhi",
+      "artist": "Anupama Deshpande, Babul Supriya, Bela, Gulshan Kumar, Kalpana, Sashwati, Sneha Pant, Swastika, Szanne D'Melo & Zubeen Garg",
+      "isrc": null,
+      "source": "shazam",
+      "first_seen": "2026-11-01",
+      "latest_date": "2026-11-01",
+      "latest_reel": "https://www.instagram.com/reel/DfMAIhdypnc/",
+      "apple": "https://music.apple.com/search?term=Kaanta%20Laga%20-%20Samadhi%20Anupama%20Deshpande%2C%20Babul%20Supriya%2C%20Bela%2C%20Gulshan%20Kumar%2C%20Kalpana%2C%20Sashwati%2C%20Sneha%20Pant%2C%20Swastika%2C%20Szanne%20D%27Melo%20%26%20Zubeen%20Garg"
+    },
     {
       "key": "isrc:INMUS2159101",
       "title": "Dil Luteya & Others",
