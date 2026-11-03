@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-11-02T15:50:56+00:00",
-  "newest_seen": "2026-11-02",
+  "updated_at": "2026-11-03T14:12:38+00:00",
+  "newest_seen": "2026-11-03",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -92,9 +92,21 @@
     "DfMtSzJoJ0A",
     "DfO2XCII1Oj",
     "DfOmEGgIgid",
-    "DfPNrsFIJte"
+    "DfPNrsFIJte",
+    "DfR0ArVI0Ug"
   ],
   "songs": [
+    {
+      "key": "isrc:INS181102560",
+      "title": "I Love You",
+      "artist": "Pritam, Ash King & Clinton Cerejo",
+      "isrc": "INS181102560",
+      "source": "shazam",
+      "first_seen": "2026-11-03",
+      "latest_date": "2026-11-03",
+      "latest_reel": "https://www.instagram.com/reel/DfR0ArVI0Ug/",
+      "apple": "https://music.apple.com/us/album/i-love-you/1121693790?i=1121693948"
+    },
     {
       "key": "isrc:USADM2039701",
       "title": "Zaman GT Bollywood Mix",
