@@ -1,8 +1,8 @@
 {
   "version": 1,
   "username": "keaches",
-  "updated_at": "2026-11-26T16:53:28+00:00",
-  "newest_seen": "2026-11-26",
+  "updated_at": "2026-11-27T16:41:59+00:00",
+  "newest_seen": "2026-11-27",
   "seen_shortcodes": [
     "DYhd9RxonEv",
     "DZcDfAxoZqf",
@@ -141,9 +141,33 @@
     "DgJzVePoSkd",
     "DgKrDQwoh2L",
     "DgM-_J0IrvP",
-    "DgMXVQkI63G"
+    "DgMXVQkI63G",
+    "DgO90J6Sd_t",
+    "DgPpAH4IqnR"
   ],
   "songs": [
+    {
+      "key": "ta:op 9 no 2|emil gilel",
+      "title": "\u591c\u66f2Op. 9, No. 2",
+      "artist": "Emil Gilel",
+      "isrc": null,
+      "source": "instagram",
+      "first_seen": "2026-10-30",
+      "latest_date": "2026-11-27",
+      "latest_reel": "https://www.instagram.com/reel/DgO90J6Sd_t/",
+      "apple": "https://music.apple.com/search?term=%E5%A4%9C%E6%9B%B2Op.%209%2C%20No.%202%20Emil%20Gilel"
+    },
+    {
+      "key": "ta:criminal|akon vishal dadlani shruti pathak vishal shekhar",
+      "title": "Criminal",
+      "artist": "Akon, Vishal Dadlani, Shruti Pathak, Vishal-Shekhar",
+      "isrc": null,
+      "source": "instagram",
+      "first_seen": "2026-11-27",
+      "latest_date": "2026-11-27",
+      "latest_reel": "https://www.instagram.com/reel/DgPpAH4IqnR/",
+      "apple": "https://music.apple.com/us/album/criminal/1123224919?i=1123225130"
+    },
     {
       "key": "ta:positive|jamback",
       "title": "Positive",
@@ -660,17 +684,6 @@
       "latest_date": "2026-10-30",
       "latest_reel": "https://www.instagram.com/reel/DfG4COAop0p/",
       "apple": "https://music.apple.com/us/album/twist/1842069630?i=1842069634"
-    },
-    {
-      "key": "ta:op 9 no 2|emil gilel",
-      "title": "\u591c\u66f2Op. 9, No. 2",
-      "artist": "Emil Gilel",
-      "isrc": null,
-      "source": "instagram",
-      "first_seen": "2026-10-30",
-      "latest_date": "2026-10-30",
-      "latest_reel": "https://www.instagram.com/reel/DfH7tI7o25o/",
-      "apple": "https://music.apple.com/search?term=%E5%A4%9C%E6%9B%B2Op.%209%2C%20No.%202%20Emil%20Gilel"
     },
     {
       "key": "isrc:INY090800003",
